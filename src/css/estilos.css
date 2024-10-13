@@ -1,0 +1,230 @@
+/* ---------------------- Estilização do Corpo ---------------------- */
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("../imagens/background.png");
+    background-size: cover;
+    background-position: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    backdrop-filter: blur(8px);
+}
+
+/* ---------------------- Container Principal ---------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 50px; /* Ajuste para mover a logo para baixo */
+}
+
+/* ---------------------- Logo ---------------------- */
+.logo-container {
+    margin-bottom: 30px; /* Espaçamento entre a logo e o conteúdo */
+}
+
+.logo {
+    max-width: 800px; /* Ajuste o tamanho máximo conforme necessário */
+}
+
+/* ---------------------- Cartões DragonDevs ---------------------- */
+.dragondevs {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.cartao-dragondev {
+    display: none;
+    max-width: 360px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.9) 0px 7px 29px 0px;
+}
+
+.cartao-dragondev.aberto {
+    display: block;
+}
+
+.cartao-dragondev img {
+    margin-top: 10px;
+    width: 100%; /* Ocupe toda a largura do contêiner do cartão */
+    height: 275px; /* Altura fixa para uniformizar todas as imagens */
+    object-fit: cover; /* Preenche o espaço sem distorção */
+    border-radius: 12px; /* Borda arredondada em todas as direções */
+}
+
+/* Detalhes e Informações dos Cartões */
+.cartao-dragondev .cartao-topo {
+    padding: 30px 40px 0;
+}
+
+.cartao-dragondev .nome {
+    margin-bottom: 5px;
+}
+
+.cartao-dragondev .tipo {
+    background-color: #ffffff;
+    font-size: 12px;
+    opacity: 0.7;
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
+.cartao-dragondev .detalhes {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartao-dragondev .cartao-informacoes {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 30px 50px;
+    margin-top: -70px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.cartao-dragondev .cartao-informacoes h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #6b727a;
+}
+
+.cartao-dragondev .cartao-informacoes .descricao {
+    padding: 0 10px;
+    font-size: 15px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+/* ---------------------- Tipos de DragonDevs ---------------------- */
+.tipo-eletrico { background-color: #fcc719; }
+.tipo-fogo { background-color: #341099d2; }
+.tipo-agua { background-color: #015C98; }
+.tipo-grama { background-color: #49D0B0; }
+.tipo-trevas { background-color: #BA68C8; }
+.tipo-fada { background-color: #c2f8c6; }
+
+/* ---------------------- Listagem ---------------------- */
+.listagem {
+    max-width: 200px;
+}
+
+.listagem .dragondev img {
+    width: 25%;
+}
+
+.listagem .dragondev {
+    background-color: #6b727a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    min-height: 70px;
+    transition: 0.15s ease-in-out; /* Corrigido para incluir 's' */
+}
+
+.listagem .dragondev:hover {
+    transform: scale(1.05);
+}
+
+.listagem .dragondev span {
+    padding-right: 20px;
+}
+
+.listagem .dragondev.ativo {
+    background-color: #fa6668;
+}
+
+/* ---------------------- Textos e Botões ---------------------- */
+.intro-text {
+    text-align: justify;
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.continue-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    animation: piscar 1.5s infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #10278f;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3;
+}
+
+/* ---------------------- Animações ---------------------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fundo-transparente {
+    position: relative; /* Para posicionar os elementos filhos */
+    z-index: 1; /* Certifique-se de que fique acima do fundo da página */
+}
+
+.fundo-transparente::before {
+    content: ""; /* Cria um pseudo-elemento */
+    position: absolute; /* Permite que você posicione o fundo relativo ao contêiner */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de opacidade */
+    z-index: -1; /* Para que o fundo fique atrás do texto */
+}
+
+
+/* Repetição do código 'continue-text' removida, pois já está declarado anteriormente. */
